@@ -1,0 +1,134 @@
+fileFormatVersion: 2
+guid: e36ee03e4ea38504594950ec5ccd5807
+timeCreated: 1504103747
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: nAbducens
+    100004: pin
+    100006: pinBackPole
+    100008: pinCanalisOpticus
+    100010: pinEquator
+    100012: pinFissuraOrbitalisInferior
+    100014: pinFissuraOrbitalisSuperior
+    100016: pinFrontPole
+    100018: pinInferiorWall
+    100020: pinLateralWall
+    100022: pinMedialWall
+    100024: pinSuperiorWall
+    400000: //RootNode
+    400002: nAbducens
+    400004: pin
+    400006: pinBackPole
+    400008: pinCanalisOpticus
+    400010: pinEquator
+    400012: pinFissuraOrbitalisInferior
+    400014: pinFissuraOrbitalisSuperior
+    400016: pinFrontPole
+    400018: pinInferiorWall
+    400020: pinLateralWall
+    400022: pinMedialWall
+    400024: pinSuperiorWall
+    2300000: nAbducens
+    2300002: pin
+    2300004: pinBackPole
+    2300006: pinCanalisOpticus
+    2300008: pinEquator
+    2300010: pinFissuraOrbitalisInferior
+    2300012: pinFissuraOrbitalisSuperior
+    2300014: pinFrontPole
+    2300016: pinInferiorWall
+    2300018: pinLateralWall
+    2300020: pinMedialWall
+    2300022: pinSuperiorWall
+    3300000: nAbducens
+    3300002: pin
+    3300004: pinBackPole
+    3300006: pinCanalisOpticus
+    3300008: pinEquator
+    3300010: pinFissuraOrbitalisInferior
+    3300012: pinFissuraOrbitalisSuperior
+    3300014: pinFrontPole
+    3300016: pinInferiorWall
+    3300018: pinLateralWall
+    3300020: pinMedialWall
+    3300022: pinSuperiorWall
+    4300000: pinEquator
+    4300002: pin
+    4300004: pinFrontPole
+    4300006: pinBackPole
+    4300008: pinSuperiorWall
+    4300010: pinInferiorWall
+    4300012: pinMedialWall
+    4300014: pinLateralWall
+    4300016: pinFissuraOrbitalisInferior
+    4300018: pinFissuraOrbitalisSuperior
+    4300020: pinCanalisOpticus
+    4300022: nAbducens
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

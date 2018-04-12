@@ -1,0 +1,199 @@
+fileFormatVersion: 2
+guid: b585cfccb0c63fd4eb19ed5f35ecc3ef
+timeCreated: 1504726332
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bChoroidea
+    100002: bCornea
+    100004: bCorpusCiliare
+    100006: bCorpusVitreum
+    100008: bIris
+    100010: bLens
+    100012: bRetina
+    100014: bSclera
+    100016: Cylinder001
+    100018: Cylinder002
+    100020: Cylinder003
+    100022: Cylinder004
+    100024: pin
+    100026: pinAnulusTendineusCommunis
+    100028: pinBackPole
+    100030: pinCanalisOpticus
+    100032: pinEquator
+    100034: pinFissuraOrbitalisInferior
+    100036: pinFissuraOrbitalisSuperior
+    100038: pinFrontPole
+    100040: pinInferiorWall
+    100042: pinLateralWall
+    100044: pinMedialWall
+    100046: pinSuperiorWall
+    100048: pinTrochlea
+    100050: //RootNode
+    400000: bChoroidea
+    400002: bCornea
+    400004: bCorpusCiliare
+    400006: bCorpusVitreum
+    400008: bIris
+    400010: bLens
+    400012: bRetina
+    400014: bSclera
+    400016: Cylinder001
+    400018: Cylinder002
+    400020: Cylinder003
+    400022: Cylinder004
+    400024: pin
+    400026: pinAnulusTendineusCommunis
+    400028: pinBackPole
+    400030: pinCanalisOpticus
+    400032: pinEquator
+    400034: pinFissuraOrbitalisInferior
+    400036: pinFissuraOrbitalisSuperior
+    400038: pinFrontPole
+    400040: pinInferiorWall
+    400042: pinLateralWall
+    400044: pinMedialWall
+    400046: pinSuperiorWall
+    400048: pinTrochlea
+    400050: //RootNode
+    2300000: bChoroidea
+    2300002: bCornea
+    2300004: bCorpusCiliare
+    2300006: bCorpusVitreum
+    2300008: bIris
+    2300010: bLens
+    2300012: bRetina
+    2300014: bSclera
+    2300016: Cylinder001
+    2300018: Cylinder002
+    2300020: Cylinder003
+    2300022: Cylinder004
+    2300024: pin
+    2300026: pinAnulusTendineusCommunis
+    2300028: pinBackPole
+    2300030: pinCanalisOpticus
+    2300032: pinEquator
+    2300034: pinFissuraOrbitalisInferior
+    2300036: pinFissuraOrbitalisSuperior
+    2300038: pinFrontPole
+    2300040: pinInferiorWall
+    2300042: pinLateralWall
+    2300044: pinMedialWall
+    2300046: pinSuperiorWall
+    2300048: pinTrochlea
+    3300000: bChoroidea
+    3300002: bCornea
+    3300004: bCorpusCiliare
+    3300006: bCorpusVitreum
+    3300008: bIris
+    3300010: bLens
+    3300012: bRetina
+    3300014: bSclera
+    3300016: Cylinder001
+    3300018: Cylinder002
+    3300020: Cylinder003
+    3300022: Cylinder004
+    3300024: pin
+    3300026: pinAnulusTendineusCommunis
+    3300028: pinBackPole
+    3300030: pinCanalisOpticus
+    3300032: pinEquator
+    3300034: pinFissuraOrbitalisInferior
+    3300036: pinFissuraOrbitalisSuperior
+    3300038: pinFrontPole
+    3300040: pinInferiorWall
+    3300042: pinLateralWall
+    3300044: pinMedialWall
+    3300046: pinSuperiorWall
+    3300048: pinTrochlea
+    4300000: bRetina
+    4300002: bLens
+    4300004: bCorpusVitreum
+    4300006: bChoroidea
+    4300008: bSclera
+    4300010: bCornea
+    4300012: bIris
+    4300014: bCorpusCiliare
+    4300016: pinEquator
+    4300018: pin
+    4300020: pinFrontPole
+    4300022: pinBackPole
+    4300024: pinSuperiorWall
+    4300026: pinInferiorWall
+    4300028: pinMedialWall
+    4300030: pinLateralWall
+    4300032: pinFissuraOrbitalisInferior
+    4300034: pinFissuraOrbitalisSuperior
+    4300036: pinCanalisOpticus
+    4300038: pinTrochlea
+    4300040: Cylinder001
+    4300042: pinAnulusTendineusCommunis
+    4300044: Cylinder002
+    4300046: Cylinder003
+    4300048: Cylinder004
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

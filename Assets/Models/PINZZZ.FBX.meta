@@ -1,0 +1,119 @@
+fileFormatVersion: 2
+guid: c0d58e23afa864c4b8a42fedd8c80dbc
+timeCreated: 1505146493
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: pinBackPole
+    100002: pinCanalisOpticus001
+    100004: pinFissuraOrbitalisInferior001
+    100006: pinFissuraOrbitalisSuperior
+    100008: pinFrontPole
+    100010: pinInferiorWall001
+    100012: pinLateralWall001
+    100014: pinMedialWall001
+    100016: pinSuperiorWall001
+    100018: //RootNode
+    400000: pinBackPole
+    400002: pinCanalisOpticus001
+    400004: pinFissuraOrbitalisInferior001
+    400006: pinFissuraOrbitalisSuperior
+    400008: pinFrontPole
+    400010: pinInferiorWall001
+    400012: pinLateralWall001
+    400014: pinMedialWall001
+    400016: pinSuperiorWall001
+    400018: //RootNode
+    2300000: pinBackPole
+    2300002: pinCanalisOpticus001
+    2300004: pinFissuraOrbitalisInferior001
+    2300006: pinFissuraOrbitalisSuperior
+    2300008: pinFrontPole
+    2300010: pinInferiorWall001
+    2300012: pinLateralWall001
+    2300014: pinMedialWall001
+    2300016: pinSuperiorWall001
+    3300000: pinBackPole
+    3300002: pinCanalisOpticus001
+    3300004: pinFissuraOrbitalisInferior001
+    3300006: pinFissuraOrbitalisSuperior
+    3300008: pinFrontPole
+    3300010: pinInferiorWall001
+    3300012: pinLateralWall001
+    3300014: pinMedialWall001
+    3300016: pinSuperiorWall001
+    4300000: pinFrontPole
+    4300002: pinBackPole
+    4300004: pinFissuraOrbitalisSuperior
+    4300006: pinSuperiorWall001
+    4300008: pinMedialWall001
+    4300010: pinLateralWall001
+    4300012: pinInferiorWall001
+    4300014: pinFissuraOrbitalisInferior001
+    4300016: pinCanalisOpticus001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

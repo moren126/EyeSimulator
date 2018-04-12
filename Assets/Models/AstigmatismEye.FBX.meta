@@ -1,0 +1,209 @@
+fileFormatVersion: 2
+guid: 577d0bf255be23c4493b9bc62b7c69bd
+timeCreated: 1504858105
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: aChoroidea
+    100002: aCornea
+    100004: aCorpusCiliare
+    100006: aCorpusVitreum
+    100008: aIris
+    100010: aLens
+    100012: aRetina
+    100014: aSclera
+    100016: //RootNode
+    100018: bChoroidea
+    100020: bCornea
+    100022: bCorpusCiliare
+    100024: bCorpusVitreum
+    100026: bIris
+    100028: bLens
+    100030: Box001
+    100032: bRetina
+    100034: bSclera
+    100036: cAfter2
+    100038: cAfter3
+    100040: cAfter4
+    100042: cAfter5
+    100044: cBefore1
+    100046: cBefore2
+    100048: cBefore3
+    100050: cBefore4
+    100052: cBefore5
+    100054: Cylinder001
+    400000: aChoroidea
+    400002: aCornea
+    400004: aCorpusCiliare
+    400006: aCorpusVitreum
+    400008: aIris
+    400010: aLens
+    400012: aRetina
+    400014: aSclera
+    400016: //RootNode
+    400018: bChoroidea
+    400020: bCornea
+    400022: bCorpusCiliare
+    400024: bCorpusVitreum
+    400026: bIris
+    400028: bLens
+    400030: Box001
+    400032: bRetina
+    400034: bSclera
+    400036: cAfter2
+    400038: cAfter3
+    400040: cAfter4
+    400042: cAfter5
+    400044: cBefore1
+    400046: cBefore2
+    400048: cBefore3
+    400050: cBefore4
+    400052: cBefore5
+    400054: Cylinder001
+    2300000: aChoroidea
+    2300002: aCornea
+    2300004: aCorpusCiliare
+    2300006: aCorpusVitreum
+    2300008: aIris
+    2300010: aLens
+    2300012: aRetina
+    2300014: aSclera
+    2300016: bChoroidea
+    2300018: bCornea
+    2300020: bCorpusCiliare
+    2300022: bCorpusVitreum
+    2300024: bIris
+    2300026: bLens
+    2300028: Box001
+    2300030: bRetina
+    2300032: bSclera
+    2300034: cAfter2
+    2300036: cAfter3
+    2300038: cAfter4
+    2300040: cAfter5
+    2300042: cBefore1
+    2300044: cBefore2
+    2300046: cBefore3
+    2300048: cBefore4
+    2300050: cBefore5
+    2300052: Cylinder001
+    3300000: aChoroidea
+    3300002: aCornea
+    3300004: aCorpusCiliare
+    3300006: aCorpusVitreum
+    3300008: aIris
+    3300010: aLens
+    3300012: aRetina
+    3300014: aSclera
+    3300016: bChoroidea
+    3300018: bCornea
+    3300020: bCorpusCiliare
+    3300022: bCorpusVitreum
+    3300024: bIris
+    3300026: bLens
+    3300028: Box001
+    3300030: bRetina
+    3300032: bSclera
+    3300034: cAfter2
+    3300036: cAfter3
+    3300038: cAfter4
+    3300040: cAfter5
+    3300042: cBefore1
+    3300044: cBefore2
+    3300046: cBefore3
+    3300048: cBefore4
+    3300050: cBefore5
+    3300052: Cylinder001
+    4300000: bRetina
+    4300002: bLens
+    4300004: bCorpusVitreum
+    4300006: bChoroidea
+    4300008: bSclera
+    4300010: bCornea
+    4300012: bIris
+    4300014: bCorpusCiliare
+    4300016: Cylinder001
+    4300018: aSclera
+    4300020: aRetina
+    4300022: aChoroidea
+    4300024: aCornea
+    4300026: aIris
+    4300028: aCorpusVitreum
+    4300030: aCorpusCiliare
+    4300032: aLens
+    4300034: cBefore1
+    4300036: cBefore2
+    4300038: cBefore3
+    4300040: Box001
+    4300042: cBefore4
+    4300044: cBefore5
+    4300046: cAfter4
+    4300048: cAfter5
+    4300050: cAfter2
+    4300052: cAfter3
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
