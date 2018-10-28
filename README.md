@@ -1,5 +1,7 @@
 # Aplikacja wspomagająca naukę anatomii prawidłowej i patologicznej narządu wzroku
 
+Projekt skończony we wrześniu 2017r.
+
 ![alt text](screenshots/fig1.png "Anathomy")
 
  - sterowanie: mysz i klawiatura 
@@ -29,6 +31,8 @@ Instrukcja: wypakuj plik zip, uruchom eye32_v02.exe, wybierz rozdzielczość ekr
 
 #
 Application for learning correct and pathological anatomy of eye
+
+Project finished in September 2017.
 
  - controls: mouse and keyboard
  - Polish inteface
