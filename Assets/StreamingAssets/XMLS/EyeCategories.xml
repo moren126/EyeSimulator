@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EyeCategories xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EyeCategoriesList>
+    <Category xsi:type="Category">
+      <Type>EYESOCKET</Type>
+      <ID>1</ID>
+      <NamePolish>Kości oczodołu</NamePolish>
+      <NameLatin>Orbit</NameLatin>
+    </Category>
+    <Category xsi:type="Category">
+      <Type>MUSCLES</Type>
+      <ID>2</ID>
+      <NamePolish>Mięśnie</NamePolish>
+      <NameLatin>Musculi</NameLatin>
+    </Category>
+    <Category xsi:type="Category">
+      <Type>NERVES</Type>
+      <ID>3</ID>
+      <NamePolish>Nerwy</NamePolish>
+      <NameLatin>Nervi</NameLatin>
+    </Category>
+    <Category xsi:type="Category">
+      <Type>EYEBALL</Type>
+      <ID>4</ID>
+      <NamePolish>Gałka oczna</NamePolish>
+      <NameLatin>Bulbus Oculi</NameLatin>
+    </Category>
+    <Category xsi:type="Category">
+      <Type>OTHER</Type>
+      <ID>5</ID>
+      <NamePolish>Inne</NamePolish>
+      <NameLatin></NameLatin>
+    </Category>
+  </EyeCategoriesList>
+</EyeCategories>

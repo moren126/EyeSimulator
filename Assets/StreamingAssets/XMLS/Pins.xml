@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pins xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PinsList>
+    <Pin xsi:type="Pin">
+      <Name>pinBackPole</Name>
+      <Description>biegun tylny gałki ocznej</Description>
+    </Pin>
+    <Pin xsi:type="Pin">
+      <Name>pinCanalisOpticus</Name>
+      <Description>kanał wzrokowy</Description>
+    </Pin>
+    <Pin xsi:type="Pin">
+      <Name>pinEquator</Name>
+      <Description>równik gałki ocznej</Description>
+    </Pin>
+    <Pin xsi:type="Pin">
+      <Name>pinEquator</Name>
+      <Description>równik gałki ocznej</Description>
+    </Pin>
+    <Pin xsi:type="Pin">
+      <Name>pinFissuraOrbitalisInferior</Name>
+      <Description>szczelina oczodołowa dolna</Description>
+    </Pin>
+    <Pin xsi:type="Pin">
+      <Name>pinFissuraOrbitalisSuperior</Name>
+      <Description>szczelina oczodołowa górna</Description>
+    </Pin>
+    <Pin xsi:type="Pin">
+      <Name>pinFrontPole</Name>
+      <Description>biegun przedni gałki ocznej</Description>
+    </Pin>
+    <Pin xsi:type="Pin">
+      <Name>pinInferiorWall</Name>
+      <Description>ściana dolna oczodołu</Description>
+    </Pin>
+    <Pin xsi:type="Pin">
+      <Name>pinLateralWall</Name>
+      <Description>ściana boczna oczodołu</Description>
+    </Pin>
+    <Pin xsi:type="Pin">
+      <Name>pinMedialWall</Name>
+      <Description>ściana przyśrodkowa oczodołu</Description>
+    </Pin>
+    <Pin xsi:type="Pin">
+      <Name>pinSuperiorWall</Name>
+      <Description>ściana górna oczodołu</Description>
+    </Pin>
+    <Pin xsi:type="Pin">
+      <Name>othAnulusTendineusCommunis</Name>
+      <Description>pierścień ścięgnisty wspólny</Description>
+    </Pin>
+    <Pin xsi:type="Pin">
+      <Name>othTrochlea</Name>
+      <Description>bloczek</Description>
+    </Pin>
+  </PinsList>
+</Pins>

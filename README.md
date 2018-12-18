@@ -1,8 +1,8 @@
 # Aplikacja wspomagająca naukę anatomii prawidłowej i patologicznej narządu wzroku
 
-Projekt skończony we wrześniu 2017r.
+Projekt skończony we wrześniu 2017r. Wykorzystany przez studentów CMUJ na przedmiocie 'Telemedycyna z elementami symulacji medycznej'.
 
-![alt text](screenshots/fig1.png "Anathomy")
+![alt text](screenshots/fig1.png "Anatomy")
 
  - sterowanie: mysz i klawiatura 
  - polski interfejs 
@@ -22,17 +22,16 @@ Projekt skończony we wrześniu 2017r.
 Projekt wykonany z wykorzystaniem Unity 5.4.2 oraz 3ds Max 2017.
 
 #
-Katalog z plikami wykonywalnymi dostępny tutaj: 
+Katalog z plikami wykonywalnymi na systemy Windows, wersja z września 2017: 
 
 https://my.pcloud.com/publink/show?code=XZrVQk7Z6DagG51OnNFyh1IGhv6rVYx2Vee7
 
-Instrukcja: wypakuj plik zip, uruchom eye32_v02.exe, wybierz rozdzielczość ekranu i kliknij 'Play!' 
+Katalog z plikami wykonywalnymi na systemy Windows, wersja ulepszana, nieskończona : 
 
+https://my.pcloud.com/publink/show?code=XZHKVC7ZTXV7uJvzbbfK3hkEN14Ja4UgyFz7
 
 #
 Application for learning correct and pathological anatomy of eye
-
-Project finished in September 2017.
 
  - controls: mouse and keyboard
  - Polish inteface
@@ -46,8 +45,10 @@ Project finished in September 2017.
 
 Project made using Unity 5.4.2 and 3ds Max 2017.
 
-Catalog with executable files available here:
+Catalog with executable files for Windows systems, version from September 2017:
 
 https://my.pcloud.com/publink/show?code=XZrVQk7Z6DagG51OnNFyh1IGhv6rVYx2Vee7
 
-Instructions: extract the zip file, run eye32_v02.exe, select the screen resolution and click 'Play!'
+Catalog with executable files for Windows systems, new unfinished version:
+
+https://my.pcloud.com/publink/show?code=XZHKVC7ZTXV7uJvzbbfK3hkEN14Ja4UgyFz7

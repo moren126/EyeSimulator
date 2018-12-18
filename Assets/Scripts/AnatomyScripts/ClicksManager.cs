@@ -3,332 +3,311 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System.Linq;
+using EyeSimulator.Anatomy.Pins;
 
-public class ClicksManager : MonoBehaviour {
-
-	public GameObject nothing;
-
-	private Modes _whichMode;
-	private ModelManager _modelManagerInstance;
-	private ElementsVisibility _elementsVisibilityInstance;
-	private TogglesManager _togglesManagerInstance;
-	private TextsManager _textManagerInstance;
-	private GameManager _gm;
-
-	private GameObject positionBefore1, positionBefore2;
-	private RaycastHit hit;
-	private GameObject hitObject1, hitObject2;
-	private Toggle hitToggle;
-	private Color color;
-	private bool rayHitSthg;
-	private bool stopEyeRotation;
-	private bool isHighlited;
-
-	private float rotationSpeedH; 
-	private float rotationSpeedV; 
-
-	private float doubleClickTime;
-	private float lastClickTime;
-
-	private float fovBefore;
-	private float minFov;
-	private int _state;
-	private bool wasSpace;
-
-	private int index, index3;
-
-
-	void AssignNames(GameObject model) {
-		if (model.name == "Orbit") {
-			foreach (Transform child in model.transform) {
-				if (!child.name.StartsWith ("p"))
-					_elementsVisibilityInstance.nonHighlited.Add (child.gameObject);
-			}
-		} else if (model.name == "HalfOrbit") {
-			foreach (Transform child in model.transform) {
-				if (!child.name.StartsWith ("p"))
-					_elementsVisibilityInstance.nonHighlitedH.Add (child.gameObject);
-			}
-		}
-	}
-
-	void Start () {
-		GameObject _modelsObject = GameObject.Find ("Models");
-		_modelManagerInstance = _modelsObject.GetComponent<ModelManager>();
-		_elementsVisibilityInstance = _modelsObject.GetComponent<ElementsVisibility> ();
-
-		GameObject _mainCanvasObject = GameObject.Find ("Main Canvas");
-		_textManagerInstance = _mainCanvasObject.GetComponent<TextsManager>();
-		_whichMode = _mainCanvasObject.GetComponent<Modes>();
-		_state = _whichMode.state;
-
-		GameObject _togglesObject = GameObject.Find("ObjectForTogglesScipts");
-		_togglesManagerInstance = _togglesObject.GetComponent<TogglesManager> ();
-
-		GameObject _cameraObject = GameObject.Find ("Main Camera");
-		_gm = _cameraObject.GetComponent<GameManager>();
-
-		AssignNames (_modelManagerInstance._orbit);
-		AssignNames (_modelManagerInstance._halfOrbit);
-
-		isHighlited = false;
-		rayHitSthg = false;
-		stopEyeRotation = false;
-		wasSpace = false;
-
-		doubleClickTime = 1.0f;
-		lastClickTime = -10.0f;
-
-		minFov = 30;
-
-		positionBefore1 = new GameObject ();
-		positionBefore2 = new GameObject ();
-
-		hitObject1 = nothing;
-		hitObject2 = nothing;
-
-		index = index3 = 0;
-
-		rotationSpeedH = -30;
-		rotationSpeedV = -30;
-	}
-		
-	void Update () {
-		_state = _whichMode.state;
-
-		_togglesManagerInstance.CheckMainToggles(_state);
-		_togglesManagerInstance.CheckMinorToggles(_state);
-
-		// na co wskazuje kursor
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-		if (Physics.Raycast (ray, out hit)) {
-			foreach (ModelData m in _modelManagerInstance._modelList) {
-				if (hit.transform.name == m.name) {
-					hitObject1 = m.part;
-					hitObject2 = m.partH;
-					color = m.color;
-					rayHitSthg = true;
-
-					foreach (Toggle t in _togglesManagerInstance._togglesList) {
-						if (t.name == m.toggleName) {
-							hitToggle = t;
-							break;
-						}
-					}
-
-					break;
-				}
-			}
-		} else {
-			// zabezpieczenie
-			if (!isHighlited) { 
-				hitObject1 = nothing;
-				hitObject2 = nothing;
-			}
-		}
-
-
-		// kursor wskazuje na obiekt z colliderem
-		if (rayHitSthg && (hitObject1 != nothing || hitObject2 != nothing)) {
-
-			// dezaktywacja klikanych obiektow - podwójny LPM
-			if (Input.GetMouseButtonDown (0)) {
-
-				float timeDelta = Time.time - lastClickTime;
-
-				if (!isHighlited) {
-
-					if (timeDelta < doubleClickTime) {
-						
-						// zapamietanie koloru elementu przed podswietleniem 
-						hitObject1.GetComponent<Renderer> ().material.color = color;
-						hitObject2.GetComponent<Renderer> ().material.color = color;
-				
-						// dodawanie do listy i dezaktywacja klikanych podwojnie elementow
-						if (!_elementsVisibilityInstance._nonVisibility.Contains(hitObject1))
-							_elementsVisibilityInstance._nonVisibility.Add (hitObject1);
-						if (!_elementsVisibilityInstance._nonVisibilityH.Contains(hitObject2))
-							_elementsVisibilityInstance._nonVisibilityH.Add (hitObject2);
-						
-						hitObject1.SetActive (false);
-						hitObject2.SetActive (false);
-
-						// dodawanie do listy i dezaktywacja przelacznika do klikanego podwojnie elementu
-						if (!_elementsVisibilityInstance._nonVisibleToggles.Contains(hitToggle))
-							_elementsVisibilityInstance._nonVisibleToggles.Add (hitToggle);
-						hitToggle.isOn = false;
-
-						lastClickTime = 0;
-
-					} else
-						lastClickTime = Time.time;
-				}
-			}
-
-			// wyroznienie elementu - wcisnieta raz spacja
-			if (Input.GetKeyUp (KeyCode.Space) && !wasSpace) {
-
-				if (!isHighlited) {
-					// usuwanie elemtow wyroznionych (nonHighlited zawiera wszystkie elemnty modelu)
-					_elementsVisibilityInstance.nonHighlited.Remove (hitObject1);
-					_elementsVisibilityInstance.nonHighlitedH.Remove (hitObject2);
-
-					// dezaktywacja wszystkich elementow poza wyroznionymi
-					for (int x = 0; x < _elementsVisibilityInstance.nonHighlited.Count; x++)
-						_elementsVisibilityInstance.nonHighlited[x].SetActive(false);
-
-					for (int x = 0; x < _elementsVisibilityInstance.nonHighlitedH.Count; x++)
-						_elementsVisibilityInstance.nonHighlitedH[x].SetActive(false);
-
-					// warunek o stanie wyroznienia elementu
-					isHighlited = true;
-				}
-
-				// zapamietanie widoku kamery przed wyroznianiem elementu
-				fovBefore = Camera.main.fieldOfView;
-				// zoom (by wyrozniony element bylo lepiej widac)
-				Camera.main.fieldOfView = minFov;
-
-				// zapamietanie pozycji modelu przed wyroznianiem elementu
-				positionBefore1.transform.position = new Vector3 (hitObject1.transform.position.x, hitObject1.transform.position.y, hitObject1.transform.position.z);
-				positionBefore1.transform.eulerAngles = new Vector3 (hitObject1.transform.eulerAngles.x, hitObject1.transform.eulerAngles.y, hitObject1.transform.eulerAngles.z);
-				positionBefore2.transform.position = new Vector3 (hitObject2.transform.position.x, hitObject2.transform.position.y, hitObject2.transform.position.z);
-				positionBefore2.transform.eulerAngles = new Vector3 (hitObject2.transform.eulerAngles.x, hitObject2.transform.eulerAngles.y, hitObject2.transform.eulerAngles.z);
-
-				// przesuniecie wyroznionego elementu na srodek ekranu
-				hitObject1.transform.position = new Vector3 (0, 0, 0);
-				hitObject2.transform.position = new Vector3 (0, 0, 0);
-
-				// warunek o stopowaniu widocznego obracania calego modelu, obraca sie tylko wyroznoiny element
-				stopEyeRotation = true;
-
-				// wcisnieto raz spacje (zabezpieczenie przed wieloklikiem)
-				wasSpace = true;
-
-				_textManagerInstance.ShowFullDescription (hitObject1.name);
-				_textManagerInstance.SettOffLeftMenu ();
-			}
-
-
-		}
-
-
-		// jesli nie ma stopowania widocznego obracania calego modelu -> caly model sie obraca
-		if (!stopEyeRotation) {
-			_modelManagerInstance._orbit.transform.Rotate (0, Input.GetAxis ("Horizontal") * rotationSpeedH * Time.deltaTime, 0);
-			_modelManagerInstance._orbit.transform.Rotate (Input.GetAxis ("Vertical") * rotationSpeedV * Time.deltaTime, 0, 0);
-			_modelManagerInstance._halfOrbit.transform.Rotate (0, Input.GetAxis ("Horizontal") * rotationSpeedH * Time.deltaTime, 0);
-			_modelManagerInstance._halfOrbit.transform.Rotate (Input.GetAxis ("Vertical") * rotationSpeedV * Time.deltaTime, 0, 0);
-		} 
-		//jesli stopowanie widocznego obracania calego modelu -> obraca sie tylko wyrozniony element (x2)
-		else {
-			if (hitObject1.name == "bCorpusVitreum" || hitObject1.name == "bLens") {
-				hitObject1.transform.Rotate (0, 0, Input.GetAxis ("Horizontal") * rotationSpeedH * Time.deltaTime);
-				hitObject2.transform.Rotate (0, 0, Input.GetAxis ("Horizontal") * rotationSpeedH * Time.deltaTime);
-				hitObject1.transform.Rotate (Input.GetAxis ("Vertical") * rotationSpeedV * Time.deltaTime, 0, 0);
-				hitObject2.transform.Rotate (Input.GetAxis ("Vertical") * rotationSpeedV * Time.deltaTime, 0, 0);
-			} else if (hitObject1.name == "mRectusInferior" || hitObject1.name == "mObliquusInferior") {
-				hitObject1.transform.Rotate (0, Input.GetAxis ("Horizontal") * (-1) * rotationSpeedH * Time.deltaTime, 0);
-				hitObject2.transform.Rotate (0, Input.GetAxis ("Horizontal") * (-1) * rotationSpeedH * Time.deltaTime, 0);
-				hitObject1.transform.Rotate (Input.GetAxis ("Vertical") * (-1) * rotationSpeedV * Time.deltaTime, 0, 0);
-				hitObject2.transform.Rotate (Input.GetAxis ("Vertical") * (-1) * rotationSpeedV * Time.deltaTime, 0, 0);
-			} else if (hitObject1.name == "mRectusLateralis" || hitObject1.name == "mRectusMedialis") {
-				hitObject1.transform.Rotate (0, Input.GetAxis ("Vertical") * rotationSpeedH * Time.deltaTime, 0);
-				hitObject2.transform.Rotate (0, Input.GetAxis ("Vertical") * rotationSpeedH * Time.deltaTime, 0);
-				hitObject1.transform.Rotate (Input.GetAxis ("Horizontal") * rotationSpeedV * Time.deltaTime, 0, 0);
-				hitObject2.transform.Rotate (Input.GetAxis ("Horizontal") * rotationSpeedV * Time.deltaTime, 0, 0);
-			} else {
-				hitObject1.transform.Rotate (0, Input.GetAxis ("Horizontal") * rotationSpeedH * Time.deltaTime, 0);
-				hitObject2.transform.Rotate (0, Input.GetAxis ("Horizontal") * rotationSpeedH * Time.deltaTime, 0);
-				hitObject1.transform.Rotate (Input.GetAxis ("Vertical") * rotationSpeedV * Time.deltaTime, 0, 0);
-				hitObject2.transform.Rotate (Input.GetAxis ("Vertical") * rotationSpeedV * Time.deltaTime, 0, 0);
-			}
-		}
-
-		// obsluga PPM 
-		if (Input.GetMouseButtonDown(1)) {
-
-			// cofanie wyroznienia elementu
-			if (isHighlited) {
-
-				// przywracanie niewyroznionych elementow (wyroznione elementy byly caly czas aktywne) 
-				for (int x = 0; x < _elementsVisibilityInstance.nonHighlited.Count; x++)
-					_elementsVisibilityInstance.nonHighlited[x].SetActive(true);
-
-				for (int x = 0; x < _elementsVisibilityInstance.nonHighlitedH.Count; x++)
-					_elementsVisibilityInstance.nonHighlitedH[x].SetActive(true);
-
-				if (!_elementsVisibilityInstance.nonHighlited.Contains(hitObject1))
-					_elementsVisibilityInstance.nonHighlited.Add (hitObject1);
-				if (!_elementsVisibilityInstance.nonHighlitedH.Contains(hitObject2))
-					_elementsVisibilityInstance.nonHighlitedH.Add (hitObject2);
-
-				// wylaczanie elementow zdjetych przed wyroznianiem
-				foreach (GameObject item in _elementsVisibilityInstance._nonVisibility)
-					item.SetActive (false);
-				foreach (GameObject item in _elementsVisibilityInstance._nonVisibilityH)
-					item.SetActive (false);
-
-				// powrot do widoku kamery i pozycji elementów sprzed wyrozniania
-				Camera.main.fieldOfView = fovBefore;
-				hitObject1.transform.position = new Vector3 (positionBefore1.transform.position.x, positionBefore1.transform.position.y, positionBefore1.transform.position.z);
-				hitObject1.transform.eulerAngles = new Vector3 (positionBefore1.transform.eulerAngles.x, positionBefore1.transform.eulerAngles.y, positionBefore1.transform.eulerAngles.z);
-				hitObject2.transform.position = new Vector3 (positionBefore2.transform.position.x, positionBefore2.transform.position.y, positionBefore2.transform.position.z);
-				hitObject2.transform.eulerAngles = new Vector3 (positionBefore2.transform.eulerAngles.x, positionBefore2.transform.eulerAngles.y, positionBefore2.transform.eulerAngles.z);
-
-				// warunek o stopowaniu widocznego obracania calego modelu jest juz nieprawdziwy
-				stopEyeRotation = false;
-
-				// warunek o pojedynczym wcisnieciu klawisza spacji jest juz nieprawdziwy
-				wasSpace = false;
-
-				// warunek o wyroznianiu elementu jt juz nieprawdziwy
-				isHighlited = false;
-
-				_textManagerInstance.SettOffFullDescription ();
-				_textManagerInstance.SettOnLeftMenu ();
-			}
-
-			// cofanie dezaktywacji elementow (1 klik - 1 element)
-			else if (_elementsVisibilityInstance._nonVisibility.Count > 0) {
-				index = _elementsVisibilityInstance._nonVisibility.Count - 1;
-
-				GameObject undo = _elementsVisibilityInstance._nonVisibility [index];
-				if (undo) { 
-					undo.SetActive (true);
-					_elementsVisibilityInstance._nonVisibility.RemoveAt (index);
-				}
-
-				index = _elementsVisibilityInstance._nonVisibilityH.Count - 1;
-				undo = _elementsVisibilityInstance._nonVisibilityH [index];
-
-				if (undo) {
-					undo.SetActive (true);
-					_elementsVisibilityInstance._nonVisibilityH.RemoveAt (index);
-				}
-
-				// ustawianie przelacznikow do dezaktywowanych elemetow na wlaczone
-				if (_elementsVisibilityInstance._nonVisibleToggles.Count >= 0) {
-					index3 = _elementsVisibilityInstance._nonVisibleToggles.Count - 1;
-					Toggle undo3 = _elementsVisibilityInstance._nonVisibleToggles [index3];
-					undo3.isOn = true;
-					if (index3 >= 0 && index3 < _elementsVisibilityInstance._nonVisibleToggles.Count)
-						_elementsVisibilityInstance._nonVisibleToggles.RemoveAt (index3);
-				}
-
-			// zabezpieczenie przed koncem
-			} else if (_elementsVisibilityInstance._nonVisibility.Count == 0) {
-				_elementsVisibilityInstance._nonVisibility.Clear ();
-				_elementsVisibilityInstance._nonVisibilityH.Clear ();
-			}
-		}
-
-		// wyjscie do menu
-		if (Input.GetKeyUp (KeyCode.Escape)) {
-			_gm.LoadScene("main");
+namespace EyeSimulator.Anatomy {
+
+	public class ClicksManager : MonoBehaviour {
+
+		private Modes whichMode;
+		private TextsManager textManagerInstance;
+		private AnatomyUIManager anatomyUIManager;
+		private PinsManager pinsManager;
+
+		private GameObject positionBefore1, positionBefore2;
+		private RaycastHit hit;
+		private GameObject hitObject1, hitObject2;
+		private Toggle hitToggle;
+		private Color color;
+
+		private bool rayHitSthg;
+		private bool stopEyeRotation;
+		private bool isHighlighted;
+
+		private float rotationSpeedH = -30f; 
+		private float rotationSpeedV = -30f; 
+
+		private float doubleClickTime = 1f;
+		private float lastClickTime = 10f;
+
+		private float fovBefore;
+		private float minFov = 50f;
+
+		private bool wasSpace;
+
+		private int index, index3;
+
+
+		void Start () {
+			anatomyUIManager = FindObjectOfType<AnatomyUIManager> ();
+			pinsManager = FindObjectOfType<PinsManager> ();
+			textManagerInstance = FindObjectOfType<TextsManager> (); 
+			whichMode = FindObjectOfType<Modes>();
+
+			AssignToLists (AnatomySceneManager.Instance.EyeSocketModel);
+			AssignToLists (AnatomySceneManager.Instance.EyeSocketHalfModel);
+
+			isHighlighted = false;
+			rayHitSthg = false;
+			stopEyeRotation = false;
+			wasSpace = false;
+
+			positionBefore1 = new GameObject ();
+			positionBefore2 = new GameObject ();
+
+			hitObject1 = AnatomySceneManager.Instance.EmptyGameObject;
+			hitObject2 = AnatomySceneManager.Instance.EmptyGameObject;
+
+			index = index3 = 0;
 		}
 			
-	}
+		void Update () {
 
+			// what the cursor points to
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+			if (Physics.Raycast (ray, out hit)) {
+				foreach (var list in AnatomySceneManager.Instance.EyeElements.AllLists) {
+
+					foreach (var m in list) {
+
+						if (hit.transform.name == m.DescriptionFileName) {
+							hitObject1 = AnatomySceneManager.Instance.GetPart (true, m.DescriptionFileName); 
+							hitObject2 = AnatomySceneManager.Instance.GetPart (false, m.DescriptionFileName);
+
+							color = hitObject1.GetComponent<HighlightObject> ().GetColor();
+							rayHitSthg = true;
+
+							foreach (Toggle t in anatomyUIManager.ToggleList) {
+								if (t.name == m.DescriptionFileName) {
+									hitToggle = t;
+									break;
+								}
+							}
+
+							break;
+						}
+
+					}
+
+
+				}
+			} else {
+				
+				if (!isHighlighted) { 
+					hitObject1 = AnatomySceneManager.Instance.EmptyGameObject;
+					hitObject2 = AnatomySceneManager.Instance.EmptyGameObject;
+				}
+			}
+
+
+			// cursor points to the object with the collider
+			if (rayHitSthg && (hitObject1 != AnatomySceneManager.Instance.EmptyGameObject || hitObject2 != AnatomySceneManager.Instance.EmptyGameObject)) {
+
+				// deactivation of clicked objects - double LMB
+				if (Input.GetMouseButtonDown (0)) {
+
+					float timeDelta = Time.time - lastClickTime;
+
+					if (!isHighlighted) {
+
+						if (timeDelta < doubleClickTime) {
+							
+							// memorizing the color of the element before highlighting
+							hitObject1.GetComponent<Renderer> ().material.color = color;
+							hitObject2.GetComponent<Renderer> ().material.color = color;
+					
+							// adding to the list and deactivation of double-clicked elements
+							if (!ElementsVisibility.nonVisibility.Contains(hitObject1))
+								ElementsVisibility.nonVisibility.Add (hitObject1);
+							if (!ElementsVisibility.nonVisibilityH.Contains(hitObject2))
+								ElementsVisibility.nonVisibilityH.Add (hitObject2);
+							
+							hitObject1.SetActive (false);
+							hitObject2.SetActive (false);
+
+							// adding to the list and deactivating the toggle corresponding to the double-clicked element
+							if (!ElementsVisibility.nonVisibleToggles.Contains(hitToggle))
+								ElementsVisibility.nonVisibleToggles.Add (hitToggle);
+							hitToggle.isOn = false;
+
+							lastClickTime = 0;
+
+						} else
+							lastClickTime = Time.time;
+					}
+				}
+
+				// highlighting element - space key pressed once
+				if (Input.GetKeyUp (KeyCode.Space) && !wasSpace) {
+
+					if (!isHighlighted) {
+						// removing highlighted elements (nonHighlited contain all elements of the model)
+						ElementsVisibility.nonHighlited.Remove (hitObject1);
+						ElementsVisibility.nonHighlitedH.Remove (hitObject2);
+
+						// deactivation of all elements except highlighted
+						for (int x = 0; x < ElementsVisibility.nonHighlited.Count; x++)
+							ElementsVisibility.nonHighlited[x].SetActive(false);
+
+						for (int x = 0; x < ElementsVisibility.nonHighlitedH.Count; x++)
+							ElementsVisibility.nonHighlitedH[x].SetActive(false);
+
+						isHighlighted = true;
+					}
+
+
+					fovBefore = Camera.main.fieldOfView;
+					Camera.main.fieldOfView = minFov;
+
+					positionBefore1.transform.position = new Vector3 (hitObject1.transform.position.x, hitObject1.transform.position.y, hitObject1.transform.position.z);
+					positionBefore1.transform.eulerAngles = new Vector3 (hitObject1.transform.eulerAngles.x, hitObject1.transform.eulerAngles.y, hitObject1.transform.eulerAngles.z);
+					positionBefore2.transform.position = new Vector3 (hitObject2.transform.position.x, hitObject2.transform.position.y, hitObject2.transform.position.z);
+					positionBefore2.transform.eulerAngles = new Vector3 (hitObject2.transform.eulerAngles.x, hitObject2.transform.eulerAngles.y, hitObject2.transform.eulerAngles.z);
+
+					hitObject1.transform.position = Vector3.zero;
+					hitObject2.transform.position = Vector3.zero;
+
+					// the condition of stopping the rotation of the whole model, only the highlited element is rotated
+					stopEyeRotation = true;
+
+					wasSpace = true;
+
+					textManagerInstance.ShowFullDescription (hitObject1.name);
+					textManagerInstance.SettOffLeftMenu ();
+
+					if (whichMode.PinsMode)
+						pinsManager.PinsOn ();
+				}
+					
+			}
+
+
+			// the whole model rotates
+			if (!stopEyeRotation) {
+
+				AnatomySceneManager.Instance.EyeSocketModel.transform.Rotate (0, Input.GetAxis ("Horizontal") * rotationSpeedH * Time.deltaTime, 0);
+				AnatomySceneManager.Instance.EyeSocketModel.transform.Rotate (Input.GetAxis ("Vertical") * rotationSpeedV * Time.deltaTime, 0, 0);
+
+				AnatomySceneManager.Instance.EyeSocketHalfModel.transform.Rotate (0, Input.GetAxis ("Horizontal") * rotationSpeedH * Time.deltaTime, 0);
+				AnatomySceneManager.Instance.EyeSocketHalfModel.transform.Rotate (Input.GetAxis ("Vertical") * rotationSpeedV * Time.deltaTime, 0, 0);
+
+
+			} // only the highlited element is rotated
+			else if (stopEyeRotation) {
+				if (hitObject1.name == "bCorpusVitreum" || hitObject1.name == "bLens") {
+					hitObject1.transform.Rotate (0, 0, Input.GetAxis ("Horizontal") * rotationSpeedH * Time.deltaTime);
+					hitObject2.transform.Rotate (0, 0, Input.GetAxis ("Horizontal") * rotationSpeedH * Time.deltaTime);
+					hitObject1.transform.Rotate (Input.GetAxis ("Vertical") * rotationSpeedV * Time.deltaTime, 0, 0);
+					hitObject2.transform.Rotate (Input.GetAxis ("Vertical") * rotationSpeedV * Time.deltaTime, 0, 0);
+				} else if (hitObject1.name == "mRectusInferior" || hitObject1.name == "mObliquusInferior") {
+					hitObject1.transform.Rotate (0, Input.GetAxis ("Horizontal") * (-1) * rotationSpeedH * Time.deltaTime, 0);
+					hitObject2.transform.Rotate (0, Input.GetAxis ("Horizontal") * (-1) * rotationSpeedH * Time.deltaTime, 0);
+					hitObject1.transform.Rotate (Input.GetAxis ("Vertical") * (-1) * rotationSpeedV * Time.deltaTime, 0, 0);
+					hitObject2.transform.Rotate (Input.GetAxis ("Vertical") * (-1) * rotationSpeedV * Time.deltaTime, 0, 0);
+				} else if (hitObject1.name == "mRectusLateralis" || hitObject1.name == "mRectusMedialis") {
+					hitObject1.transform.Rotate (0, Input.GetAxis ("Vertical") * rotationSpeedH * Time.deltaTime, 0);
+					hitObject2.transform.Rotate (0, Input.GetAxis ("Vertical") * rotationSpeedH * Time.deltaTime, 0);
+					hitObject1.transform.Rotate (Input.GetAxis ("Horizontal") * rotationSpeedV * Time.deltaTime, 0, 0);
+					hitObject2.transform.Rotate (Input.GetAxis ("Horizontal") * rotationSpeedV * Time.deltaTime, 0, 0);
+				} else {
+					hitObject1.transform.Rotate (0, Input.GetAxis ("Horizontal") * rotationSpeedH * Time.deltaTime, 0);
+					hitObject2.transform.Rotate (0, Input.GetAxis ("Horizontal") * rotationSpeedH * Time.deltaTime, 0);
+					hitObject1.transform.Rotate (Input.GetAxis ("Vertical") * rotationSpeedV * Time.deltaTime, 0, 0);
+					hitObject2.transform.Rotate (Input.GetAxis ("Vertical") * rotationSpeedV * Time.deltaTime, 0, 0);
+				}
+			}
+
+			// RMB 
+			if (Input.GetMouseButtonDown(1)) {
+
+				// undo the element's highlight
+				if (isHighlighted) {
+
+					for (int x = 0; x < ElementsVisibility.nonHighlited.Count; x++)
+						ElementsVisibility.nonHighlited[x].SetActive(true);
+
+					for (int x = 0; x < ElementsVisibility.nonHighlitedH.Count; x++)
+						ElementsVisibility.nonHighlitedH[x].SetActive(true);
+
+					if (!ElementsVisibility.nonHighlited.Contains(hitObject1))
+						ElementsVisibility.nonHighlited.Add (hitObject1);
+					if (!ElementsVisibility.nonHighlitedH.Contains(hitObject2))
+						ElementsVisibility.nonHighlitedH.Add (hitObject2);
+
+					foreach (GameObject item in ElementsVisibility.nonVisibility)
+						item.SetActive (false);
+					foreach (GameObject item in ElementsVisibility.nonVisibilityH)
+						item.SetActive (false);
+
+					Camera.main.fieldOfView = fovBefore;
+					hitObject1.transform.position = new Vector3 (positionBefore1.transform.position.x, positionBefore1.transform.position.y, positionBefore1.transform.position.z);
+					hitObject1.transform.eulerAngles = new Vector3 (positionBefore1.transform.eulerAngles.x, positionBefore1.transform.eulerAngles.y, positionBefore1.transform.eulerAngles.z);
+					hitObject2.transform.position = new Vector3 (positionBefore2.transform.position.x, positionBefore2.transform.position.y, positionBefore2.transform.position.z);
+					hitObject2.transform.eulerAngles = new Vector3 (positionBefore2.transform.eulerAngles.x, positionBefore2.transform.eulerAngles.y, positionBefore2.transform.eulerAngles.z);
+
+					stopEyeRotation = false;
+
+					wasSpace = false;
+
+					isHighlighted = false;
+
+					textManagerInstance.SettOffFullDescription ();
+					textManagerInstance.SettOnLeftMenu ();
+				}
+
+				// undo the deactivation of elements (1 click - one element)
+				else if (ElementsVisibility.nonVisibility.Count > 0) {
+					index = ElementsVisibility.nonVisibility.Count - 1;
+
+					GameObject undo = ElementsVisibility.nonVisibility [index];
+					if (undo) { 
+						undo.SetActive (true);
+						ElementsVisibility.nonVisibility.RemoveAt (index);
+					}
+
+					index = ElementsVisibility.nonVisibilityH.Count - 1;
+					undo = ElementsVisibility.nonVisibilityH [index];
+
+					if (undo) {
+						undo.SetActive (true);
+						ElementsVisibility.nonVisibilityH.RemoveAt (index);
+					}
+						
+					if (ElementsVisibility.nonVisibleToggles.Count >= 0) {
+						index3 = ElementsVisibility.nonVisibleToggles.Count - 1;
+						Toggle undo3 = ElementsVisibility.nonVisibleToggles [index3];
+						undo3.isOn = true;
+
+						if (undo3.transform.parent.GetChild (0).GetComponent<Toggle> ().isOn == false)
+							undo3.transform.parent.GetChild (0).GetComponent<Toggle> ().isOn = true;
+
+						if (index3 >= 0 && index3 < ElementsVisibility.nonVisibleToggles.Count)
+							ElementsVisibility.nonVisibleToggles.RemoveAt (index3);
+
+					}
+						
+				} else if (ElementsVisibility.nonVisibility.Count == 0) {
+					ElementsVisibility.nonVisibility.Clear ();
+					ElementsVisibility.nonVisibilityH.Clear ();
+				}
+			}	
+		}
+			
+		private void AssignToLists(GameObject model) {
+			
+			if (model.name == "EyeSocket") {
+				foreach (Transform child in model.transform) {
+					if (!child.name.StartsWith ("p"))
+						ElementsVisibility.nonHighlited.Add (child.gameObject);
+				}
+			} else if (model.name == "EyeSocketHalf") {
+				foreach (Transform child in model.transform) {
+					if (!child.name.StartsWith ("p"))
+						ElementsVisibility.nonHighlitedH.Add (child.gameObject);
+				}
+			}
+		}
+
+	}
 }

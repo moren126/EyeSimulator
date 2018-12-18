@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EyeElements xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EyeSocketList>
+    <Element xsi:type="Element">
+      <Type>EYESOCKET</Type>
+      <ID>1</ID>
+      <NamePolish>kość czołowa</NamePolish>
+      <NameLatin>os frontale</NameLatin>
+      <DescriptionFileName>osFrontale</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>EYESOCKET</Type>
+      <ID>2</ID>
+      <NamePolish>szczęka</NamePolish>
+      <NameLatin>os maxilla</NameLatin>
+      <DescriptionFileName>osMaxilla</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>EYESOCKET</Type>
+      <ID>3</ID>
+      <NamePolish>kość jarzmowa</NamePolish>
+      <NameLatin>os zygomaticum</NameLatin>
+      <DescriptionFileName>osZygomaticum</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>EYESOCKET</Type>
+      <ID>4</ID>
+      <NamePolish>kość łzowa</NamePolish>
+      <NameLatin>os lacrimale</NameLatin>
+      <DescriptionFileName>osLacrimale</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>EYESOCKET</Type>
+      <ID>5</ID>
+      <NamePolish>kość sitowa</NamePolish>
+      <NameLatin>os ethmoidale</NameLatin>
+      <DescriptionFileName>osEthmoidale</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>EYESOCKET</Type>
+      <ID>6</ID>
+      <NamePolish>kość klinowa</NamePolish>
+      <NameLatin>os sphenoidale</NameLatin>
+      <DescriptionFileName>osSphenoidale</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>EYESOCKET</Type>
+      <ID>7</ID>
+      <NamePolish>kość podniebienna</NamePolish>
+      <NameLatin>os palatinum</NameLatin>
+      <DescriptionFileName>osPalatinum</DescriptionFileName>
+    </Element>
+  </EyeSocketList>
+  <MusclesList>
+    <Element xsi:type="Element">
+      <Type>MUSCLES</Type>
+      <ID>1</ID>
+      <NamePolish>mięsień prosty przyśrodkowy</NamePolish>
+      <NameLatin>musculus rectus medialis</NameLatin>
+      <DescriptionFileName>mRectusMedialis</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>MUSCLES</Type>
+      <ID>2</ID>
+      <NamePolish>mięsień prosty boczny</NamePolish>
+      <NameLatin>musculus rectus lateralis</NameLatin>
+      <DescriptionFileName>mRectusLateralis</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>MUSCLES</Type>
+      <ID>3</ID>
+      <NamePolish>mięsień prosty górny</NamePolish>
+      <NameLatin>musculus rectus superior</NameLatin>
+      <DescriptionFileName>mRectusSuperior</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>MUSCLES</Type>
+      <ID>4</ID>
+      <NamePolish>mięsień prosty dolny</NamePolish>
+      <NameLatin>musculus rectus inferior</NameLatin>
+      <DescriptionFileName>mRectusInferior</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>MUSCLES</Type>
+      <ID>5</ID>
+      <NamePolish>mięsień skośny górny</NamePolish>
+      <NameLatin>musculus obliquus superior</NameLatin>
+      <DescriptionFileName>mObliquusSuperior</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>MUSCLES</Type>
+      <ID>6</ID>
+      <NamePolish>mięsień skośny dolny</NamePolish>
+      <NameLatin>musculus obliquus inferior</NameLatin>
+      <DescriptionFileName>mObliquusInferior</DescriptionFileName>
+    </Element>
+  </MusclesList>
+  <NervesList>
+    <Element xsi:type="Element">
+      <Type>NERVES</Type>
+      <ID>1</ID>
+      <NamePolish>nerw wzrokowy</NamePolish>
+      <NameLatin>nervi opticus</NameLatin>
+      <DescriptionFileName>nOpticus</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>NERVES</Type>
+      <ID>2</ID>
+      <NamePolish>nerw okoruchowy</NamePolish>
+      <NameLatin>nervi oculomotorius</NameLatin>
+      <DescriptionFileName>nOculomotorius</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>NERVES</Type>
+      <ID>3</ID>
+      <NamePolish>nerw bloczkowy</NamePolish>
+      <NameLatin>nervi trochlearis</NameLatin>
+      <DescriptionFileName>nTrochlearis</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>NERVES</Type>
+      <ID>4</ID>
+      <NamePolish>nerw odwodzący</NamePolish>
+      <NameLatin>nervi abducens</NameLatin>
+      <DescriptionFileName>nAbducens</DescriptionFileName>
+    </Element>
+  </NervesList>
+  <EyeballList>
+    <Element xsi:type="Element">
+      <Type>EYEBALL</Type>
+      <ID>1</ID>
+      <NamePolish>rogówka</NamePolish>
+      <NameLatin>cornea</NameLatin>
+      <DescriptionFileName>bCornea</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>EYEBALL</Type>
+      <ID>2</ID>
+      <NamePolish>twardówka</NamePolish>
+      <NameLatin>sclera</NameLatin>
+      <DescriptionFileName>bSclera</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>EYEBALL</Type>
+      <ID>3</ID>
+      <NamePolish>naczyniówka</NamePolish>
+      <NameLatin>choroidea</NameLatin>
+      <DescriptionFileName>bChoroidea</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>EYEBALL</Type>
+      <ID>4</ID>
+      <NamePolish>ciało rzęskowe</NamePolish>
+      <NameLatin>corpus ciliare</NameLatin>
+      <DescriptionFileName>bCorpusCiliare</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>EYEBALL</Type>
+      <ID>5</ID>
+      <NamePolish>tęczówka</NamePolish>
+      <NameLatin>iris</NameLatin>
+      <DescriptionFileName>bIris</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>EYEBALL</Type>
+      <ID>6</ID>
+      <NamePolish>siatkówka</NamePolish>
+      <NameLatin>retina</NameLatin>
+      <DescriptionFileName>bRetina</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>EYEBALL</Type>
+      <ID>7</ID>
+      <NamePolish>soczewka</NamePolish>
+      <NameLatin>lens</NameLatin>
+      <DescriptionFileName>bLens</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>EYEBALL</Type>
+      <ID>8</ID>
+      <NamePolish>ciało szkliste</NamePolish>
+      <NameLatin>corpus vitreum</NameLatin>
+      <DescriptionFileName>bCorpusVitreum</DescriptionFileName>
+    </Element>
+  </EyeballList>
+  <OtherList>
+    <Element xsi:type="Element">
+      <Type>OTHER</Type>
+      <ID>1</ID>
+      <NamePolish>pierścień ścięgnisty wspólny</NamePolish>
+      <NameLatin>anulus</NameLatin>
+      <DescriptionFileName>othAnulusTendineusCommunis</DescriptionFileName>
+    </Element>
+    <Element xsi:type="Element">
+      <Type>OTHER</Type>
+      <ID>2</ID>
+      <NamePolish>bloczek</NamePolish>
+      <NameLatin>trochlea</NameLatin>
+      <DescriptionFileName>othTrochlea</DescriptionFileName>
+    </Element>
+  </OtherList>
+</EyeElements>

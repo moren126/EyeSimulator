@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using EyeSimulator;
 
 public class DisordersManager : MonoBehaviour {
 

@@ -1,45 +1,62 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Modes : MonoBehaviour {
+namespace EyeSimulator.Anatomy {
 
-	public int state;
-	public int previousState;
-	public bool wasStateChange;
-	public bool pinsMode;
-	public int gameMode;
+	public class Modes : MonoBehaviour {
 
-	private ModelManager _modelManagerInstance;
+		private int state; 
+		private int previousState;
+		private bool wasStateChange;
+		private bool wasStateChangeForToggles;
+		private bool pinsMode;
 
-	void Start () {
-		GameObject _modelsObject = GameObject.Find("Models");
-		_modelManagerInstance = _modelsObject.GetComponent<ModelManager>();
+		public int State {
+			get { return state; }
+		}
 
-		state = 0;
-		previousState = 0;
-		wasStateChange = false;
+		public bool PinsMode {
+			get { return pinsMode; }
+			set { pinsMode = value; }
+		}
 
-		pinsMode = false;
-		gameMode = 0;
-	}
-
-	void Update () {
-		
-		if (previousState != state) {
-			wasStateChange = true;
-			previousState = state;
+		public bool WasStateChangeForToggles {
+			get { return wasStateChangeForToggles; }
+			set { wasStateChangeForToggles = value; }
 		}
 			
-		if (state == 0) {
-			_modelManagerInstance._orbit.SetActive (true);
-			_modelManagerInstance._halfOrbit.SetActive (false);
-		} else if (state == 1) {
-			_modelManagerInstance._orbit.SetActive (false);
-			_modelManagerInstance._halfOrbit.SetActive (true);
+		void Start () {
+			state = 0; // 0-whole model, 1-half model
+			AnatomySceneManager.Instance.ShowWholeModel ();
+
+			previousState = 0;
+			wasStateChange = wasStateChangeForToggles = false;
+
+			pinsMode = true;
 		}
+
+		void Update () {
+			
+			if (previousState != state) {
+				wasStateChange = true;
+				wasStateChangeForToggles = wasStateChange;
+				previousState = state;
+			}
+				
+			if (wasStateChange && state == 0) {
+				AnatomySceneManager.Instance.ShowWholeModel ();
+				wasStateChange = false;
+			} else if (wasStateChange && state == 1) {
+				AnatomySceneManager.Instance.ShowHalfModel ();
+				wasStateChange = false;
+			}
+		}
+
+		public void ChangeState(int desiredState) {
+			previousState = state;
+			state = desiredState;
+		}
+
 	}
 
-	public void ChangeState(int desiredState) {
-		state = desiredState;
-	}
 }
