@@ -53,7 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AnatomyScripts\AnatomySceneManager.cs" />
      <Compile Include="Assets\Scripts\AnatomyScripts\AnatomyUIManager.cs" />
-     <Compile Include="Assets\Scripts\AnatomyScripts\ButtonsManager.cs" />
+     <Compile Include="Assets\Scripts\AnatomyScripts\ButtonsAnatomyManager.cs" />
      <Compile Include="Assets\Scripts\AnatomyScripts\ClicksManager.cs" />
      <Compile Include="Assets\Scripts\AnatomyScripts\DataScripts\BasicElement.cs" />
      <Compile Include="Assets\Scripts\AnatomyScripts\DataScripts\Category.cs" />
@@ -64,13 +64,13 @@
      <Compile Include="Assets\Scripts\AnatomyScripts\DataScripts\EyeElements.cs" />
      <Compile Include="Assets\Scripts\AnatomyScripts\DataScripts\Pin.cs" />
      <Compile Include="Assets\Scripts\AnatomyScripts\DataScripts\Pins.cs" />
-     <Compile Include="Assets\Scripts\AnatomyScripts\ElementsVisibility.cs" />
      <Compile Include="Assets\Scripts\AnatomyScripts\Modes.cs" />
      <Compile Include="Assets\Scripts\AnatomyScripts\PinsManager.cs" />
      <Compile Include="Assets\Scripts\AnatomyScripts\TextsManager.cs" />
      <Compile Include="Assets\Scripts\AnatomyScripts\ToggleCategoryScript.cs" />
      <Compile Include="Assets\Scripts\AnatomyScripts\ToggleScript.cs" />
      <Compile Include="Assets\Scripts\AnatomyScripts\TogglesInteractable.cs" />
+     <Compile Include="Assets\Scripts\ButtonsManager.cs" />
      <Compile Include="Assets\Scripts\CameraZoom.cs" />
      <Compile Include="Assets\Scripts\DisordersScripts\DisordersData.cs" />
      <Compile Include="Assets\Scripts\DisordersScripts\DisordersManager.cs" />
@@ -79,12 +79,15 @@
      <Compile Include="Assets\Scripts\DisordersScripts\DisordersTogglesLists.cs" />
      <Compile Include="Assets\Scripts\DisordersScripts\DisordersTogglesVisibility.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GetPartScript.cs" />
+     <Compile Include="Assets\Scripts\Helpers\PositionHelper.cs" />
+     <Compile Include="Assets\Scripts\Helpers\PositionTextMeshHelper.cs" />
      <Compile Include="Assets\Scripts\HighlightObject.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\MenuManager.cs" />
-     <Compile Include="Assets\Scripts\QuizScripts\AssignModels.cs" />
-     <Compile Include="Assets\Scripts\QuizScripts\QuestionData.cs" />
-     <Compile Include="Assets\Scripts\QuizScripts\QuizModelData.cs" />
+     <Compile Include="Assets\Scripts\QuizScripts\QuizModelManager.cs" />
+     <Compile Include="Assets\Scripts\QuizScripts\QuizSceneManager.cs" />
+     <Compile Include="Assets\Scripts\QuizScripts\QuizUIManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

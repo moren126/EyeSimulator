@@ -114,28 +114,15 @@ namespace EyeSimulator.Anatomy {
 			eyeCategoriesTextReader.Close ();
 
 		}
-			
-		private GameObject GetPart(GameObject model, string name) {
-
-			int childCount = model.transform.childCount;
-
-			for (int i = 0; i < childCount; i++) {
-				if (model.transform.GetChild (i).name == name) {
-					return model.transform.GetChild (i).gameObject;
-				}
-			}
-
-			return emptyGameObject;
-		}
 		#endregion
 
 		#region Public Methods
 		public GameObject GetPart(bool wholeModel, string name) {
 
 			if (wholeModel)
-				return GetPart(eyeSocketModel, name);
+				return GetPartScript.GetPart(eyeSocketModel, name);
 			else
-				return GetPart(eyeSocketHalfModel, name);
+				return GetPartScript.GetPart(eyeSocketHalfModel, name);
 
 		}
 
