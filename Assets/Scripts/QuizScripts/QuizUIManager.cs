@@ -47,11 +47,9 @@ namespace EyeSimulator.Quiz {
 		#region Private Methods
 		private void ChooseLang (Button lang) {
 			mainWindowHolder.SetActive (false);
-
-			headlineText.gameObject.SetActive(true);
-			headlineText.text = pickText;
-
 			answearsHolder.SetActive (true);
+
+			headlineText.gameObject.SetActive(false);
 
 			QuizSceneManager.Instance.ChooseLang(lang);
 		}
@@ -60,13 +58,14 @@ namespace EyeSimulator.Quiz {
 			endWindowHolder.SetActive (false);
 			answearsHolder.SetActive (true);
 
+			headlineText.gameObject.SetActive(false);
+
 			QuizSceneManager.Instance.RepeatQuiz ();
 		}
 
 		private void NewQuiz () {
 			QuizSceneManager.Instance.NewQuiz ();
 
-			headlineText.gameObject.SetActive(true);
 			headlineText.text = pickText;
 
 			endWindowHolder.SetActive (false);
@@ -139,6 +138,7 @@ namespace EyeSimulator.Quiz {
 			else
 				answerEnd = " dobrych odpowiedzi";
 
+			headlineText.gameObject.SetActive(true);
 			headlineText.text = res.ToString () + answerEnd;
 		}
 

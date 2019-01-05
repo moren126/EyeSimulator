@@ -79,12 +79,13 @@
      <Compile Include="Assets\Scripts\DisordersScripts\DisordersTogglesLists.cs" />
      <Compile Include="Assets\Scripts\DisordersScripts\DisordersTogglesVisibility.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\GetPartScript.cs" />
+     <Compile Include="Assets\Scripts\Helpers\GetPartScript.cs" />
+     <Compile Include="Assets\Scripts\Helpers\HighlightObject.cs" />
      <Compile Include="Assets\Scripts\Helpers\PositionHelper.cs" />
      <Compile Include="Assets\Scripts\Helpers\PositionTextMeshHelper.cs" />
-     <Compile Include="Assets\Scripts\HighlightObject.cs" />
-     <Compile Include="Assets\Scripts\Menu.cs" />
-     <Compile Include="Assets\Scripts\MenuManager.cs" />
+     <Compile Include="Assets\Scripts\MenuScripts\Menu.cs" />
+     <Compile Include="Assets\Scripts\MenuScripts\MenuEyeScript.cs" />
+     <Compile Include="Assets\Scripts\MenuScripts\MenuUIManager.cs" />
      <Compile Include="Assets\Scripts\QuizScripts\QuizModelManager.cs" />
      <Compile Include="Assets\Scripts\QuizScripts\QuizSceneManager.cs" />
      <Compile Include="Assets\Scripts\QuizScripts\QuizUIManager.cs" />
