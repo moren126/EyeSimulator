@@ -12,7 +12,7 @@
       <Type>EYESOCKET</Type>
       <ID>2</ID>
       <NamePolish>szczęka</NamePolish>
-      <NameLatin>os maxilla</NameLatin>
+      <NameLatin>maxilla</NameLatin>
       <DescriptionFileName>osMaxilla</DescriptionFileName>
     </Element>
     <Element xsi:type="Element">
