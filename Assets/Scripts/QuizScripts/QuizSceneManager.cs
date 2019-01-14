@@ -5,6 +5,7 @@ using System;
 using System.Xml.Serialization;
 using System.IO;
 using System.Linq;
+using EyeSimulator.Anatomy.Data;
 
 namespace EyeSimulator.Quiz {
 
@@ -15,7 +16,6 @@ namespace EyeSimulator.Quiz {
 
 		private int nr, wholeQuiz, score;
 		private int childCount;
-		private float startingFov;
 		private string version;
 		private bool wasFirst;
 
@@ -23,6 +23,7 @@ namespace EyeSimulator.Quiz {
 		private GameObject previousElement;
 		private Color previousColor;
 		private Color startColor;
+		private CameraZoom cameraZoom;
 
 		private Dictionary<string, EyeCategory> questionsDict = new Dictionary<string, EyeCategory>();
 		private List<string> questionsKeys = new List<string>();
@@ -55,7 +56,7 @@ namespace EyeSimulator.Quiz {
 			wholeQuiz = 10;
 			score = 0;
 
-			startingFov = Camera.main.GetComponent<CameraZoom> ().StartingFov;
+			cameraZoom = Camera.main.GetComponent<CameraZoom> ();
 
 			wasFirst = false;
 		}
@@ -79,7 +80,7 @@ namespace EyeSimulator.Quiz {
 		private void SetQuizElementsFromXML () {
 			Type[] eyeElementsTypes = { typeof(Element) };
 			XmlSerializer eyeElementsSerializer = new XmlSerializer (typeof(EyeElements), eyeElementsTypes);
-			TextReader eyeElementsTextReader = new StreamReader (Application.streamingAssetsPath + "/XMLS/EyeElements.xml");
+			TextReader eyeElementsTextReader = new StreamReader (Application.streamingAssetsPath + "/XML/EyeElements.xml");
 			eyeElements = (EyeElements)eyeElementsSerializer.Deserialize (eyeElementsTextReader);
 			eyeElementsTextReader.Close ();
 		}
@@ -87,8 +88,7 @@ namespace EyeSimulator.Quiz {
 		private void ResetPosition(GameObject model) {
 			model.transform.position = new Vector3 (0.25f, 0, 0);
 			model.transform.eulerAngles = new Vector3 (0, 0, 0);
-
-			Camera.main.fieldOfView = startingFov;
+			cameraZoom.ResetFov ();
 		}
 
 		private Dictionary<string, EyeCategory> DrawQuerstion (List<Element> listName, int howMany, string langVersion) {
@@ -218,7 +218,7 @@ namespace EyeSimulator.Quiz {
 				wasFirst = true;
 			}
 
-			// increase questino number
+			// increase question number
 			int whichQuestion = nr;
 			whichQuestion++;
 			quizUIManager.UpdateQuestionNr (whichQuestion);

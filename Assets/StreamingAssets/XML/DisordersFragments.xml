@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DisordersFragments xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DisordersFragmentsList>
+    <DisordersFragment xsi:type="DisordersFragment">
+      <Name>bLensCapsule</Name>
+      <NamePolish>Torebka soczewki (łac. capsula lentis)</NamePolish>
+    </DisordersFragment>
+    <DisordersFragment xsi:type="DisordersFragment">
+      <Name>bLensCortex</Name>
+      <NamePolish>Kora soczewki (łac. cortex lentis)</NamePolish>
+    </DisordersFragment>
+    <DisordersFragment xsi:type="DisordersFragment">
+      <Name>bLensNucleus</Name>
+      <NamePolish>Jądro soczewki (łac. nucleus lentis)</NamePolish>
+    </DisordersFragment>
+    <DisordersFragment xsi:type="DisordersFragment">
+      <Name>eHyphema</Name>
+      <NamePolish>Krwistek</NamePolish>
+    </DisordersFragment>
+    <DisordersFragment xsi:type="DisordersFragment">
+      <Name>eInflammation</Name>
+      <NamePolish>Zaczerwienienie gałki ocznej</NamePolish>
+    </DisordersFragment>
+    <DisordersFragment xsi:type="DisordersFragment">
+      <Name>eNodule</Name>
+      <NamePolish>Precypitaty</NamePolish>
+    </DisordersFragment>
+    <DisordersFragment xsi:type="DisordersFragment">
+      <Name>bRetina</Name>
+      <NamePolish>Odwarstwiona siatkówka</NamePolish>
+    </DisordersFragment>
+  </DisordersFragmentsList>
+</DisordersFragments>

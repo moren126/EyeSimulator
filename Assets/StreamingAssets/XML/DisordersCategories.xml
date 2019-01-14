@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DisordersCategories xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DisordersCategoriesList>
+    <DisordersCategory xsi:type="DisordersCategory">
+      <Type>REFRACTIVE_ERRORS</Type>
+      <ID>1</ID>
+      <Name>Wady refrakcji</Name>
+    </DisordersCategory>
+    <DisordersCategory xsi:type="DisordersCategory">
+      <Type>DISEASES</Type>
+      <ID>2</ID>
+      <Name>Choroby</Name>
+    </DisordersCategory>
+  </DisordersCategoriesList>
+</DisordersCategories>

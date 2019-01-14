@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DisordersElements xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RefractiveErrorsList>
+    <DisordersElement xsi:type="DisordersElement">
+      <Type>REFRACTIVE_ERRORS</Type>
+      <ID>1</ID>
+      <Name>Krótkowzroczność</Name>
+      <DescriptionFileName>dMyopia</DescriptionFileName>
+      <ImageName>MyopiaBefore</ImageName>
+    </DisordersElement>
+    <DisordersElement xsi:type="DisordersElement">
+      <Type>REFRACTIVE_ERRORS</Type>
+      <ID>2</ID>
+      <Name>Nadwzroczność</Name>
+      <DescriptionFileName>dHyperopia</DescriptionFileName>
+      <ImageName>HyperopiaBefore</ImageName>
+    </DisordersElement>
+    <DisordersElement xsi:type="DisordersElement">
+      <Type>REFRACTIVE_ERRORS</Type>
+      <ID>3</ID>
+      <Name>Niezborność</Name>
+      <DescriptionFileName>dAstig</DescriptionFileName>
+      <ImageName>AstigBefore</ImageName>
+    </DisordersElement>
+  </RefractiveErrorsList>
+  <DiseasesList>
+    <DisordersElement xsi:type="DisordersElement">
+      <Type>DISEASES</Type>
+      <ID>1</ID>
+      <Name>Zaćma</Name>
+      <DescriptionFileName>dCataract</DescriptionFileName>
+      <ImageName>Cataract</ImageName>
+    </DisordersElement>
+    <DisordersElement xsi:type="DisordersElement">
+      <Type>DISEASES</Type>
+      <ID>2</ID>
+      <Name>Krwistek</Name>
+      <DescriptionFileName>dHyphema</DescriptionFileName>
+      <ImageName>Hyphema</ImageName>
+    </DisordersElement>
+    <DisordersElement xsi:type="DisordersElement">
+      <Type>DISEASES</Type>
+      <ID>3</ID>
+      <Name>Zapalenie przed. odc. błony nacz.</Name>
+      <DescriptionFileName>dUveitis</DescriptionFileName>
+      <ImageName>Uveitis</ImageName>
+    </DisordersElement>
+    <DisordersElement xsi:type="DisordersElement">
+      <Type>DISEASES</Type>
+      <ID>4</ID>
+      <Name>Odwarstwienie siatkówki</Name>
+      <DescriptionFileName>dAblatio</DescriptionFileName>
+      <ImageName>Retinal</ImageName>
+    </DisordersElement>
+  </DiseasesList>
+</DisordersElements>

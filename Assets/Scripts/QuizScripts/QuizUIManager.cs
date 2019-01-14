@@ -55,6 +55,9 @@ namespace EyeSimulator.Quiz {
 		}
 
 		private void RepeatQuiz () {
+			UpdateQuestionNr (0);
+			UpdateScore (0);
+
 			endWindowHolder.SetActive (false);
 			answearsHolder.SetActive (true);
 
@@ -64,6 +67,9 @@ namespace EyeSimulator.Quiz {
 		}
 
 		private void NewQuiz () {
+			UpdateQuestionNr (0);
+			UpdateScore (0);
+
 			QuizSceneManager.Instance.NewQuiz ();
 
 			headlineText.text = pickText;

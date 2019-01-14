@@ -1,6 +1,6 @@
 # Aplikacja wspomagająca naukę anatomii prawidłowej i patologicznej narządu wzroku
 
-Projekt skończony we wrześniu 2017r. Wykorzystany przez studentów CMUJ na przedmiocie 'Telemedycyna z elementami symulacji medycznej'.
+Projekt wykorzystany przez studentów CMUJ na przedmiocie 'Telemedycyna z elementami symulacji medycznej'.
 
 ![alt text](screenshots/fig1.png "Anatomy")
 
@@ -22,11 +22,11 @@ Projekt skończony we wrześniu 2017r. Wykorzystany przez studentów CMUJ na prz
 Projekt wykonany z wykorzystaniem Unity 5.4.2 oraz 3ds Max 2017.
 
 #
-Katalog z plikami wykonywalnymi na systemy Windows, wersja ulepszana, nieskończona : 
+Katalog z plikami wykonywalnymi na systemy Windows: 
 
-https://my.pcloud.com/publink/show?code=XZcNQx7ZFiMoySN2kgHvQm8WE6ny4p2z8XNX
+https://my.pcloud.com/publink/show?code=XZIjrx7ZQjqNH5Wlb60GY6Kec8vWTSGqsR9V
 
-Katalog z plikami wykonywalnymi na systemy Windows, wersja z września 2017: 
+Katalog z plikami wykonywalnymi na systemy Windows, stara wersja z września 2017: 
 
 https://my.pcloud.com/publink/show?code=XZrVQk7Z6DagG51OnNFyh1IGhv6rVYx2Vee7
 
@@ -45,10 +45,10 @@ Application for learning correct and pathological anatomy of eye
 
 Project made using Unity 5.4.2 and 3ds Max 2017.
 
-Catalog with executable files for Windows systems, new unfinished version:
+Catalog with executable files for Windows systems:
 
-https://my.pcloud.com/publink/show?code=XZcNQx7ZFiMoySN2kgHvQm8WE6ny4p2z8XNX
+https://my.pcloud.com/publink/show?code=XZIjrx7ZQjqNH5Wlb60GY6Kec8vWTSGqsR9V
 
-Catalog with executable files for Windows systems, version from September 2017:
+Catalog with executable files for Windows systems, old version from September 2017:
 
 https://my.pcloud.com/publink/show?code=XZrVQk7Z6DagG51OnNFyh1IGhv6rVYx2Vee7

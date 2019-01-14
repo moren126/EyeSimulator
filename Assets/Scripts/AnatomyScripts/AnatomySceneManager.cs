@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using System.Xml.Serialization;
 using System.IO;
+using EyeSimulator.Anatomy.Data;
 
 namespace EyeSimulator.Anatomy {
 
@@ -62,7 +63,7 @@ namespace EyeSimulator.Anatomy {
 		void Awake() {
 			PrepareModels ();
 
-			LoadFromXMLS ();
+			LoadFromXMLFiles ();
 			eyeElements.SetEyeElements ();
 
 		}
@@ -99,20 +100,18 @@ namespace EyeSimulator.Anatomy {
 			return model;
 		}
 
-		private void LoadFromXMLS () {
-
+		private void LoadFromXMLFiles () {
 			Type[] eyeElementsTypes = { typeof(Element) };
 			XmlSerializer eyeElementsSerializer = new XmlSerializer (typeof(EyeElements), eyeElementsTypes);
-			TextReader eyeElementsTextReader = new StreamReader (Application.streamingAssetsPath + "/XMLS/EyeElements.xml");
+			TextReader eyeElementsTextReader = new StreamReader (Application.streamingAssetsPath + "/XML/EyeElements.xml");
 			eyeElements = (EyeElements)eyeElementsSerializer.Deserialize (eyeElementsTextReader);
 			eyeElementsTextReader.Close ();
 
 			Type[] eyeCategoriesTypes = { typeof(Category) };
 			XmlSerializer eyeCategoriesSerializer = new XmlSerializer (typeof(EyeCategories), eyeCategoriesTypes);
-			TextReader eyeCategoriesTextReader = new StreamReader (Application.streamingAssetsPath + "/XMLS/EyeCategories.xml");
+			TextReader eyeCategoriesTextReader = new StreamReader (Application.streamingAssetsPath + "/XML/EyeCategories.xml");
 			eyeCategories = (EyeCategories)eyeCategoriesSerializer.Deserialize (eyeCategoriesTextReader);
 			eyeCategoriesTextReader.Close ();
-
 		}
 		#endregion
 
